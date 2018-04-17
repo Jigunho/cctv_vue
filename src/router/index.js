@@ -64,12 +64,47 @@ export const constantRouterMap = [
     component: Layout,
     children: [
       {
-        path: 'index',
+        path: '',
         name: 'Form',
         component: () => import('@/views/form/index'),
         meta: { title: 'Form', icon: 'form' }
       }
     ]
+  },
+
+  {
+    path: '/cctv_enroll',
+    component: Layout,
+    children: [
+      {
+        path: '',
+        name: 'CCTV_enroll',
+        component: () => import('@/views/cctv_enroll/index'),
+        meta: { title: 'CCTV 등록', icon: 'form' }
+      }
+    ]
+  },
+
+  {
+    path: '/jounarling',
+    component: Layout,
+    children: [{
+      path: '',
+      name: 'Jounarling',
+      component: () => import('@/views/jounarling/index'),
+      meta: { title: '저널링', icon: 'form' }
+    }]
+  },
+
+  {
+    path: '/route',
+    component: Layout,
+    children: [{
+      path: 'route',
+      name: 'Route',
+      component: () => import('@/views/route/index'),
+      meta: { title: '길-객체 사전관리', icon: 'form' }
+    }]
   },
 
   { path: '*', redirect: '/404', hidden: true }
