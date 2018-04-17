@@ -13,8 +13,8 @@
             <tbody>
 
                 <tr v-for="post of posts" v-bind:key="post.id">
-                    <td>{{  post.id }}</td>
-                    <td>{{  post.title }}</td>
+                      <td>{{  post.id }}</td>
+                      <td>{{  post.name }}</td>
 
                 </tr>
                
@@ -37,25 +37,19 @@ export default {
     }
   },
 
+  methods: {
+    getList : function() {
+      axios.get('http://www.json-generator.com/api/json/get/bOiLYWIHSa?indent=2')
+      .then((result) => {
+        this.posts = result.data
+      }).catch((e) =>{
+        this.posts = [{id : 1, name :';;'}]
+      })
+    }
+  },
   // Fetches posts when the component is created.
-  created() {
-    axios.get(`https://api.androidhive.info/contacts/`)
-    .then(response => {
-      // JSON responses are automatically parsed.
-      this.posts = response.data
-    })
-    .catch(e => {
-      this.errors.push(e)
-    })
-
-    // async / await version (created() becomes async created())
-    //
-    // try {
-    //   const response = await axios.get(`http://jsonplaceholder.typicode.com/posts`)
-    //   this.posts = response.data
-    // } catch (e) {
-    //   this.errors.push(e)
-    // }
+  created () {
+    this.getList()
   }
 }
 </script>

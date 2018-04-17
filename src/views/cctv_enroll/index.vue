@@ -2,8 +2,10 @@
 
 <div class="container">
     <div class="row">
-        <h1>camera data filed 추가</h1>
+        <h1>camera data filed 추가 -</h1>
     </div>
+ 
+    
     <div class="row">
         <List></List>
     </div>
@@ -11,16 +13,20 @@
 </template>
 <script>
 
+
 import List from './camera_list/index.vue'
+
 export default{
+    name: 'camera_enroll',
     data() {
         return {
-            column : [ 'id', 'test','name']
+
         }
     },
-    components : {
+
+    components: {
         'List': List
-    }
+    },
 }
 
 

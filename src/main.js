@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import VueChartkick from 'vue-chartkick'
-import Chart from 'chart.js'
 import Highcharts from 'highcharts'
 
 Vue.use(VueChartkick, {adapter: Highcharts})
@@ -20,7 +19,6 @@ import store from './store'
 
 import '@/icons' // icon
 import '@/permission' // permission control
-
 Vue.use(ElementUI, { locale })
 Vue.prototype.$hostname = 'http://165.132.105.41:51908'
 Vue.prototype.$http = axios
