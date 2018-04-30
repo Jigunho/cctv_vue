@@ -7,6 +7,11 @@ import getters from './getters'
 Vue.use(Vuex)
 
 const store = new Vuex.Store({
+ 
+  state: {
+    routeModal: false,
+    cctvList: []
+  },
   modules: {
     app,
     user

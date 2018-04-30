@@ -22,7 +22,7 @@ import Layout from '../views/layout/Layout'
   }
 **/
 export const constantRouterMap = [
-  { path: '/login', component: () => import('@/views/login/index'), hidden: true },
+//  { path: '/login', component: () => import('@/views/login/index'), hidden: true },
   { path: '/404', component: () => import('@/views/404'), hidden: true },
 
   {
@@ -37,50 +37,51 @@ export const constantRouterMap = [
     }]
   },
 
-  {
-    path: '/example',
-    component: Layout,
-    redirect: '/example/table',
-    name: 'Example',
-    meta: { title: 'Example', icon: 'example' },
-    children: [
-      {
-        path: 'table',
-        name: 'Table',
-        component: () => import('@/views/table/index'),
-        meta: { title: 'Table', icon: 'table' }
-      },
-      {
-        path: 'tree',
-        name: 'Tree',
-        component: () => import('@/views/tree/index'),
-        meta: { title: 'Tree', icon: 'tree' }
-      }
-    ]
-  },
+  // {
+  //   path: '/example',
+  //   component: Layout,
+  //   redirect: '/example/table',
+  //   name: 'Example',
+  //   meta: { title: 'Example', icon: 'example' },
+  //   children: [
+  //     {
+  //       path: 'table',
+  //       name: 'Table',
+  //       component: () => import('@/views/table/index'),
+  //       meta: { title: 'Table', icon: 'table' }
+  //     },
+  //     {
+  //       path: 'tree',
+  //       name: 'Tree',
+  //       component: () => import('@/views/tree/index'),
+  //       meta: { title: 'Tree', icon: 'tree' }
+  //     }
+  //   ]
+  // },
 
   {
-    path: '/form',
+    path: '/cctv_manage',
     component: Layout,
     children: [
       {
         path: '',
-        name: 'Form',
-        component: () => import('@/views/form/index'),
-        meta: { title: 'Form', icon: 'form' }
+        name: 'cctv_mange',
+        component: () => import('@/views/camera_manage/index'),
+        meta: { title: 'CCTV_MANAGE', icon: 'form'}
       }
     ]
+
   },
 
   {
-    path: '/cctv_enroll',
+    path: '/profile',
     component: Layout,
     children: [
       {
         path: '',
-        name: 'CCTV_enroll',
-        component: () => import('@/views/cctv_enroll/index'),
-        meta: { title: 'CCTV 등록', icon: 'form' }
+        name: 'profile',
+        component: () => import('@/views/profile/index'),
+        meta: { title: 'Profile', icon: 'form' }
       }
     ]
   },
@@ -96,6 +97,20 @@ export const constantRouterMap = [
     }]
   },
 
+  // {
+  //   path: '/cctv_enroll',
+  //   component: Layout,
+  //   children: [
+  //     {
+  //       path: '',
+  //       name: 'CCTV_enroll',
+  //       component: () => import('@/views/cctv_enroll/index'),
+  //       meta: { title: 'CCTV 등록', icon: 'form' }
+  //     }
+  //   ]
+  // },
+
+
   {
     path: '/route',
     component: Layout,
@@ -103,9 +118,20 @@ export const constantRouterMap = [
       path: 'route',
       name: 'Route',
       component: () => import('@/views/route/index'),
-      meta: { title: '길-객체 사전관리', icon: 'form' }
+      meta: { title: 'Route 정보', icon: 'form' }
     }]
   },
+
+  // {
+  //   path: '/form',
+  //   component: Layout,
+  //   children: [{
+  //     path: 'form',
+  //     name: 'form',
+  //     component: () => import('@/views/form/index'),
+  //     meta: { title: 'form', icon: 'form' }
+  //   }]
+  // },
 
   { path: '*', redirect: '/404', hidden: true }
 ]

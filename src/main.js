@@ -25,6 +25,17 @@ Vue.prototype.$http = axios
 Vue.prototype.$chartist = chartist
 Vue.config.productionTip = false
 
+import 'bootstrap'
+import 'bootstrap/dist/css/bootstrap.min.css'
+import 'bootstrap/dist/css/bootstrap.css'
+import 'bootstrap-vue/dist/bootstrap-vue.css'
+
+import BootstrapVue from 'bootstrap-vue'
+ 
+Vue.use(BootstrapVue);
+
+var EventBus = new Vue()
+Vue.prototype.$bus = EventBus
 new Vue({
   el: '#app',
   router,

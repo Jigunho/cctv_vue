@@ -1,49 +1,28 @@
 <template>
-    <div v-if="hasResult">
-      <div v-for="post in posts" v-bind:key="post.id">
-        <h1></h1>
-        <p></p>
-      </div>
+<div class="container">
+    <div class="col-md-12">
+        <jounarling_filter></jounarling_filter>
     </div>
-    <button v-else v-on:click="searchTerm">글 불러오기</button>
+    <div class="col-md-12">
+        <jounarling_graph></jounarling_graph>
+    </div>
+
+</div>
+    
 </template>
-
 <script>
-
-import axios from 'axios'
+import jounarling_filter from './filter/index.vue'
+import jounarling_graph from './graph/index.vue'
 export default {
-  name: 'app',
-  data: function () {
-    return {
-      posts: []
+    name : 'jounarling',
+    components : {
+        'jounarling_filter' : jounarling_filter,
+        'jounarling_graph' : jounarling_graph
     }
-  },
-  computed: {
-    hasResult: function () {
-      return this.posts.length > 0
-    }
-  },
-  methods: {
-    searchTerm: function () {
-      // using JSONPlaceholder
-      
-      const baseURI = 'https://jsonplaceholder.typicode.com';
-      axios.get(`${baseURI}/posts`)
-      .then((result) => {
-        console.log(result)
-        this.posts = result.data
-      })
-    }
-  }
 }
-</script>
+ 
 
+</script>
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  color: #2c3e50;
-  max-width: 560px;
-}
+
 </style>
