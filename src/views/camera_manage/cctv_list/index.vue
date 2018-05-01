@@ -48,27 +48,21 @@ export default {
     name : 'cctv_list',
     data () {
         return {
-            list : []
+            // list : []
+        }
+    },
+    computed: {
+        list: function(){
+            return this.$store.state.cctvList
         }
     },
 
     methods : {
-        fetchList(){
-            this.$http.get('http://www.json-generator.com/api/json/get/bOYHeARBIO?indent=2')
-                .then((rows) => {
-                    this.list = rows.data.context.cctvList
-
-                    // this.$bus.$emit('cctvList', rows.data.context.cctvList)
-                    this.$store.state.cctvList = rows.data.context.cctvList
-                    // this.$bus.$emit('cctvList', [{name:'asd',location:'aaa'},{name:'asd',location:'aaa'},{name:'asd',location:'aaa'} ])
-
-                })
-        }
        
     },
 
     created () {
-        this.fetchList()
+
     }
 
 }

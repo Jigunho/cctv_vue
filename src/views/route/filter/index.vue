@@ -7,15 +7,13 @@
             </div>
             <div class="card-content">
                 <div>
-                    <el-select>
-
+                    <el-select placeholder="cctv선택">
+                        <el-option v-for="item in cctvList" v-bind:key="item.id" :value="item.cameraid" :label="item.name"></el-option>
                     </el-select>
-                    <el-select>
+                    <el-select placeholder="profile 선택">
                         
                     </el-select>
-                    <el-select>
-                        
-                    </el-select>
+                   
                 </div>
                 <div  align="right" style="margin-top: 20px">
                     <el-button>적용</el-button>
@@ -27,7 +25,31 @@
 </template>
 
 <script>
-export default{
-    name : 'route_filter'
+export default {
+    name : 'route_filter',
+    computed : {
+        cctvList: function(){
+            return this.$store.state.cctvList
+        },
+        profileList: function(){
+            return []      
+        },
+        filteredProfileList: function(){
+            return profileList
+        },
+        routeList: function(){
+
+        }
+    },
+
+    methods:{
+        getRouteList: function(){
+            this.$http.get('')
+                .then((rows)=>{
+                
+                
+            })
+        }
+    }
 }
 </script>

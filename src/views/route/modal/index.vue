@@ -14,8 +14,12 @@
           <div class="modal-body">
             <slot name="body">
                 <div style="position: relative;">
-                    <img src="/static/img/grid.png" width="500px" height="350px">
-                    <canvas id="frameImage" width="500px" height="350px"></canvas>
+                    <canvas id="frameImage" width="510px;" height="350px"></canvas>
+
+                    <img src="/static/img/grid.png" width="510px" height="350px">
+                </div>
+                <div>
+                  <input type="text" style="margin-top: 10px; height: 100px; width: 100%;" value="description 자리">
                 </div>
             </slot>
           </div>

@@ -22,7 +22,7 @@
     "chartist-plugin-pointlabels": "0.0.6",
     "chartkick": "^2.3.5",
     "element-ui": "2.0.8",
-    "hchs-vue-charts": "^1.2.8",
+    "hchs-vue-charts": "^1.2.31",
     "highcharts": "^6.1.0",
     "jade": "^1.11.0",
     "jquery": "^3.3.1",

@@ -5,9 +5,10 @@
         <!-- <el-select v-model="cc" placeholder="please select your zone">
           <el-option v-for="item in cctvList" v-bind:key="item.id" label="item.name" value="item.name"></el-option>
         </el-select> -->
-        <select class="selectpicker" v-model="selected">
-            <option v-for="item in cctvList" v-bind:key="item.id">{{item.name}}</option>
-        </select>
+        <span style="width: 20px;"></span>
+        <el-select v-model="selected" placeholder="CCTV 선택" @change="fetchProfileList(selected)">
+            <el-option v-for="item in cctvList" v-bind:key="item.id" :value="item.cameraid" :label="item.name"></el-option>
+        </el-select>
 
       </div>
       <div class="card-content" style="max-height: 430px; margin-top : 20px; overflow-y: scroll;">
@@ -38,7 +39,7 @@ export default {
   name : 'camera_filter',
   data() {
     return {
-      selected : 'dda'
+      selected : ''
     }
   },
   computed: {
@@ -47,10 +48,23 @@ export default {
       }
   },
   methods: {
-
+    fetchList(){
+        this.$http.get('http://www.json-generator.com/api/json/get/cgjAWWiaDC?indent=2')
+            .then((rows) => {
+                // this.cctvList = rows.data.context.cctvList
+                this.$store.state.cctvList = rows.data.context.cctvList
+            })
+    },
+    fetchProfileList(camera_id){
+        alert(camera_id)
+        // this.$http.get('')
+        //     .then((rows) => {
+        //         this.cctvList = rows.data.context.cctvList
+        //     })
+    }
   },
   created() {
-
+      this.fetchList()
   }
 }
 

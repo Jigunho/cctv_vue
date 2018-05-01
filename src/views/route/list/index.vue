@@ -13,7 +13,7 @@
         <tr v-for="post of posts" v-bind:key="post.id">
           <td>{{  post.id }}</td>
           <td>{{  post.name }}</td>
-          <td><el-button @click="showModal" >이미지 보기</el-button></td>                      
+          <td><el-button @click="showModal(post.id)" >이미지 보기</el-button></td>                      
         </tr>             
       </tbody>
   </table>
@@ -53,7 +53,9 @@ export default {
       this.clearGrid()
       this.$refs.modal.hide()
     },
-    showModal : function(){
+    showModal : function(id){
+      alert(id)
+      // description 과 image 를 넘겨줌
       this.$store.state.routeModal = true
     }
 
